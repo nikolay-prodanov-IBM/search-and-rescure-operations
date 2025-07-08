@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice – Guardianwing Drone Services</title>
+<style>
+:root {
+  --brand-bg: #fff;
+  --brand-red: #F04A4A;
+  --brand-teal: #3CB6A6;
+  --brand-blue: #18232B;
+  --brand-lightblue: #8ED1E8;
+  --brand-gray: #e0e0e0;
+  --brand-text: #222;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  padding: 40px;
+}
+.invoice-box {
+  max-width: 800px;
+  margin: auto;
+  border: 1px solid #eee;
+  padding: 30px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+table {
+  width: 100%;
+  line-height: inherit;
+  text-align: left;
+  border-collapse: collapse;
+  background: #fff;
+  color: var(--brand-text);
+}
+table td {
+  padding: 5px;
+  vertical-align: top;
+}
+table tr.top table td {
+  padding-bottom: 20px;
+}
+table tr.information table td {
+  padding-bottom: 40px;
+}
+table tr.heading td {
+  background: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+  color: var(--brand-blue);
+}
+table tr.details td {
+  padding-bottom: 20px;
+}
+table tr.item td {
+  border-bottom: 1px solid #eee;
+}
+table tr.item.last td {
+  border-bottom: none;
+}
+table tr.total td:nth-child(2) {
+  border-top: 2px solid #eee;
+  font-weight: bold;
+}
+.right {
+  text-align: right;
+}
+.company-logo {
+  font-size: 2rem;
+  color: var(--brand-teal);
+  margin-bottom: 10px;
+}
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--brand-teal);
+  text-decoration: none;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--brand-blue);
+  border-top: 1px solid var(--brand-gray);
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+@media(max-width:768px){
+  body{padding:10px}
+}
+</style>
+<!-- html2pdf.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+<a href="invoices.html" class="back-link">← Back to Invoices</a>
+<button id="download-pdf" style="margin-bottom:20px;padding:0.6rem 1.2rem;background:#667eea;color:#fff;border:none;border-radius:5px;font-size:1rem;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,.08);">Download PDF</button>
+<div class="invoice-box" id="invoice-content">
+  <table>
+    <tr class="top">
+      <td colspan="2">
+        <table>
+          <tr>
+            <td>
+              <div class="company-logo">🛡️ Guardianwing</div>
+              <strong>Drone Monitoring & Safety Services</strong><br>
+              123 Aero Street<br>
+              San Francisco, CA 94107<br>
+              Phone: (555) 123-4567<br>
+              Email: billing@guardianwing.com
+            </td>
+            <td class="right">
+              <h2>INVOICE</h2>
+              Invoice #: <strong>INV-1052</strong><br>
+              Created: July 7, 2025<br>
+              Due: July 21, 2025
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="information">
+      <td colspan="2">
+        <table>
+          <tr>
+            <td>
+              <strong>Bill To:</strong><br>
+              SkyRoute Logistics<br>
+              700 Skyline Ave<br>
+              Dallas, TX 75201<br>
+              Contact: Sarah Johnson
+            </td>
+            <td class="right">
+              <strong>Payment Terms:</strong> Net 14<br>
+              <strong>Project:</strong> Urban Delivery Route<br>
+              <strong>Client ID:</strong> CLT-2025-089
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="heading">
+      <td>Service Description</td>
+      <td class="right">Amount</td>
+    </tr>
+
+    <tr class="item">
+      <td>
+        <strong>Drone Delivery Service – Urban Route (120 km)</strong><br>
+        <small>Automated delivery service covering downtown Dallas to suburban areas. Includes real-time tracking, safety monitoring, and delivery confirmation.</small>
+      </td>
+      <td class="right">$14,400.00</td>
+    </tr>
+
+    <tr class="item">
+      <td>
+        <strong>Regulatory Flight Plan Filing</strong><br>
+        <small>FAA compliance documentation and flight path approval for commercial drone operations in controlled airspace.</small>
+      </td>
+      <td class="right">$2,500.00</td>
+    </tr>
+
+    <tr class="item last">
+      <td>
+        <strong>Data Analytics Package (30 days)</strong><br>
+        <small>Comprehensive delivery analytics, route optimization insights, and performance reporting dashboard access.</small>
+      </td>
+      <td class="right">$1,700.00</td>
+    </tr>
+
+    <tr class="total">
+      <td></td>
+      <td class="right">
+        <strong>Total: $18,600.00</strong>
+      </td>
+    </tr>
+  </table>
+
+  <div style="margin-top:30px;padding:20px;background:#f8f9fa;border-radius:8px">
+    <h4>Payment Instructions:</h4>
+    <p>Payment due within 14 days. Please remit payment to:</p>
+    <p><strong>Bank:</strong> Silicon Valley Bank<br>
+    <strong>Account:</strong> Guardianwing LLC<br>
+    <strong>Routing:</strong> 121000248<br>
+    <strong>Account #:</strong> 1234567890</p>
+    <p>For questions regarding this invoice, contact our billing department at billing@guardianwing.com or (555) 123-4567.</p>
+  </div>
+
+  <div style="margin-top:20px;text-align:center;color:#666;font-size:0.9rem">
+    <p>Thank you for choosing Guardianwing for your drone monitoring and safety needs.</p>
+  </div>
+</div>
+<script>
+document.getElementById('download-pdf').addEventListener('click', function() {
+  const element = document.getElementById('invoice-content');
+  html2pdf()
+    .set({
+      margin: 0.5,
+      filename: 'invoice.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    })
+    .from(element)
+    .save();
+});
+</script>
+</body>
+</html>

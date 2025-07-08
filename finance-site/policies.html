@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Policies – Guardianwing</title>
+<style>
+:root {
+  --brand-bg: #fff;
+  --brand-red: #F04A4A;
+  --brand-teal: #3CB6A6;
+  --brand-blue: #18232B;
+  --brand-lightblue: #8ED1E8;
+  --brand-gray: #e0e0e0;
+  --brand-text: #222;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  line-height: 1.6;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+.header {
+  background: linear-gradient(135deg, var(--brand-teal) 0%, var(--brand-lightblue) 100%);
+  color: var(--brand-blue);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,.08);
+  margin-bottom: 2rem;
+}
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: .5rem;
+  color: var(--brand-blue);
+  letter-spacing: 1px;
+}
+.nav {
+  background: var(--brand-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.06);
+  margin-bottom: 2rem;
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.nav a {
+  color: var(--brand-blue);
+  text-decoration: none;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  transition: .3s;
+  font-weight: 500;
+}
+.nav a:hover {
+  background: var(--brand-teal);
+  color: var(--brand-bg);
+}
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  border-left: 6px solid var(--brand-teal);
+}
+.card h2 {
+  color: var(--brand-blue);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+.card h3 {
+  color: var(--brand-teal);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  background: #fff;
+  color: var(--brand-text);
+}
+th, td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--brand-gray);
+}
+th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: var(--brand-blue);
+}
+.amount{text-align:right;font-weight:600}.positive{color:#28a745}.negative{color:#dc3545}
+
+.policy-section{margin-bottom:2rem;padding:1.5rem;border-left:4px solid #667eea;background:#f8f9fa}
+.policy-section h4{color:#667eea;margin-bottom:1rem;font-size:1.2rem}
+.policy-section ol{margin-left:1.5rem}
+.policy-section li{margin-bottom:0.5rem}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--brand-blue);
+  border-top: 1px solid var(--brand-gray);
+  margin-top: 3rem;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .container{padding:10px}
+  .header h1{font-size:2rem}
+  .nav ul{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header"><h1>🛡️ Guardianwing Finance Portal</h1><p>Finance & Procurement Policies</p></div>
+  <nav class="nav"><ul>
+      <li><a href="main.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="budget.html">12-Month Budget</a></li>
+      <li><a href="invoices.html">Invoices</a></li>
+      <li><a href="pnl.html">P&L Statement</a></li>
+      <li><a href="cashflow.html">Cash Flow</a></li>
+      <li><a href="policies.html">Financial Policies</a></li>
+  </ul></nav>
+
+  <div class="card">
+    <h2>Capital Purchase Policy – Items ≤ $10,000</h2>
+    <div class="policy-section">
+      <h4>Purpose</h4>
+      <p>Ensure prudent deployment of capital for low-value assets while maintaining operational agility and proper financial controls for Guardianwing's drone monitoring and safety operations.</p>
+    </div>
+
+    <div class="policy-section">
+      <h4>Scope</h4>
+      <p>This policy applies to all equipment, software, and tooling purchases ≤ $10,000 (before tax) funded by Guardianwing LLC. This includes but is not limited to:</p>
+      <ul>
+        <li>Drone hardware and accessories</li>
+        <li>Software licenses and subscriptions</li>
+        <li>Office equipment and furniture</li>
+        <li>Safety and testing equipment</li>
+        <li>IT infrastructure components</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h4>Approval Matrix</h4>
+      <table>
+        <thead><tr><th>Spend Range</th><th>Required Approver</th><th>Documentation</th><th>Turnaround Time</th></tr></thead>
+        <tbody>
+          <tr><td>$0 – $2,500</td><td>Team Lead</td><td>Email Justification</td><td>1 business day</td></tr>
+          <tr><td>$2,501 – $5,000</td><td>Department Head</td><td>PO + 2 Vendor Quotes</td><td>2 business days</td></tr>
+          <tr><td>$5,001 – $10,000</td><td>CFO</td><td>PO + ROI Analysis</td><td>3 business days</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="policy-section">
+      <h4>Procurement Process</h4>
+      <ol>
+        <li><strong>Requisition:</strong> Requester completes purchase requisition form with detailed specifications, cost justification, and preferred vendor information.</li>
+        <li><strong>Documentation:</strong> Attach required documentation per approval matrix above.</li>
+        <li><strong>Approval:</strong> Obtain electronic sign-off via the finance portal workflow system.</li>
+        <li><strong>Purchase Order:</strong> Finance team issues official Purchase Order to vendor.</li>
+        <li><strong>Asset Tracking:</strong> Finance records asset tag and adds to company inventory system.</li>
+        <li><strong>Receipt & Payment:</strong> Verify receipt of goods/services and process payment within payment terms.</li>
+      </ol>
+    </div>
+
+    <div class="policy-section">
+      <h4>Required Documentation</h4>
+      <p><strong>For All Purchases:</strong></p>
+      <ul>
+        <li>Business justification and expected use case</li>
+        <li>Budget code and cost center allocation</li>
+        <li>Vendor information and payment terms</li>
+      </ul>
+      <p><strong>For Purchases $2,501-$5,000:</strong></p>
+      <ul>
+        <li>At least 2 vendor quotes for comparison</li>
+        <li>Technical specifications document</li>
+      </ul>
+      <p><strong>For Purchases $5,001-$10,000:</strong></p>
+      <ul>
+        <li>ROI analysis with payback period</li>
+        <li>Impact on operational efficiency</li>
+        <li>Alternative solution evaluation</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h4>Emergency Exceptions</h4>
+      <p>Safety-critical items or urgent operational needs may bypass standard thresholds with:</p>
+      <ul>
+        <li>Joint approval from CEO & CFO</li>
+        <li>Written justification for emergency status</li>
+        <li>Retroactive completion of standard documentation within 5 business days</li>
+        <li>Review at next executive team meeting</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h4>Vendor Management</h4>
+      <p>All vendors must be approved through our vendor onboarding process including:</p>
+      <ul>
+        <li>W-9 form completion</li>
+        <li>Insurance certificate verification</li>
+        <li>Payment terms negotiation</li>
+        <li>Master Service Agreement (for recurring vendors)</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h4>Compliance & Audit</h4>
+      <p>This policy is subject to:</p>
+      <ul>
+        <li>Quarterly review by Finance and Operations teams</li>
+        <li>Annual audit by external accounting firm</li>
+        <li>Monthly reporting to board of directors</li>
+        <li>Immediate update for regulatory changes affecting drone operations</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Expense Reimbursement Policy</h2>
+    <div class="policy-section">
+      <h4>Eligible Expenses</h4>
+      <p>Guardianwing will reimburse employees for legitimate business expenses including:</p>
+      <ul>
+        <li>Client meeting travel and accommodation</li>
+        <li>Professional development and training</li>
+        <li>Business meals (within IRS guidelines)</li>
+        <li>Office supplies and equipment ≤ $500</li>
+        <li>Conference attendance and trade shows</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h4>Submission Requirements</h4>
+      <ul>
+        <li>Submit expense reports within 30 days of expense</li>
+        <li>Include original receipts for all expenses ≥ $25</li>
+        <li>Business purpose and attendees for meals</li>
+        <li>Pre-approval required for expenses ≥ $1,000</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">&copy; 2025 Guardianwing Finance Portal.</div>
+</div>
+</body>
+</html>

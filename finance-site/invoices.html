@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoices – Guardianwing</title>
+<style>
+:root {
+  --brand-bg: #fff;
+  --brand-red: #F04A4A;
+  --brand-teal: #3CB6A6;
+  --brand-blue: #18232B;
+  --brand-lightblue: #8ED1E8;
+  --brand-gray: #e0e0e0;
+  --brand-text: #222;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  line-height: 1.6;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+.header {
+  background: linear-gradient(135deg, var(--brand-teal) 0%, var(--brand-lightblue) 100%);
+  color: var(--brand-blue);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,.08);
+  margin-bottom: 2rem;
+}
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: .5rem;
+  color: var(--brand-blue);
+  letter-spacing: 1px;
+}
+.nav {
+  background: var(--brand-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.06);
+  margin-bottom: 2rem;
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.nav a {
+  color: var(--brand-blue);
+  text-decoration: none;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  transition: .3s;
+  font-weight: 500;
+}
+.nav a:hover {
+  background: var(--brand-teal);
+  color: var(--brand-bg);
+}
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  border-left: 6px solid var(--brand-teal);
+}
+.card h2 {
+  color: var(--brand-blue);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+.card h3 {
+  color: var(--brand-teal);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+.amount {
+  text-align: right;
+  font-weight: 600;
+}
+.positive {
+  color: var(--brand-teal);
+}
+.negative {
+  color: var(--brand-red);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  background: #fff;
+  color: var(--brand-text);
+}
+th, td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--brand-gray);
+}
+th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: var(--brand-blue);
+}
+.status-badge{padding:0.25rem 0.75rem;border-radius:12px;font-size:0.85rem;font-weight:500}
+.status-paid{background:#d4edda;color:#155724}
+.status-pending{background:#fff3cd;color:#856404}
+.status-overdue{background:#f8d7da;color:#721c24}
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--brand-blue);
+  border-top: 1px solid var(--brand-gray);
+  margin-top: 3rem;
+}
+@media(max-width:768px){
+  .container{padding:10px}
+  .header h1{font-size:2rem}
+  .nav ul{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header"><h1>🛡️ Guardianwing Finance Portal</h1><p>Invoice Center</p></div>
+  <nav class="nav">
+    <ul>
+      <li><a href="main.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="budget.html">12-Month Budget</a></li>
+      <li><a href="invoices.html">Invoices</a></li>
+      <li><a href="pnl.html">P&L Statement</a></li>
+      <li><a href="cashflow.html">Cash Flow</a></li>
+      <li><a href="policies.html">Financial Policies</a></li>
+    </ul>
+  </nav>
+
+  <div class="card">
+    <h2>Outstanding & Recent Invoices</h2>
+    <table>
+      <thead><tr><th>#</th><th>Date</th><th>Client</th><th>Status</th><th class="amount">Total</th><th>PDF</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>INV-1052</td><td>2025-07-07</td><td>SkyRoute Logistics</td>
+          <td><span class="status-badge status-paid">Paid</span></td>
+          <td class="amount">$18,600</td>
+          <td><a href="invoice-template.html">View</a></td>
+        </tr>
+        <tr>
+          <td>INV-1051</td><td>2025-06-25</td><td>AeroSecure Energy</td>
+          <td><span class="status-badge status-pending">Pending</span></td>
+          <td class="amount">$11,200</td>
+          <td><a href="invoice-template.html">View</a></td>
+        </tr>
+        <tr>
+          <td>INV-1050</td><td>2025-06-18</td><td>Terra Drone Services</td>
+          <td><span class="status-badge status-overdue">Overdue</span></td>
+          <td class="amount">$26,750</td>
+          <td><a href="invoice-template.html">View</a></td>
+        </tr>
+        <tr>
+          <td>INV-1049</td><td>2025-06-10</td><td>CloudGuard Solutions</td>
+          <td><span class="status-badge status-paid">Paid</span></td>
+          <td class="amount">$15,400</td>
+          <td><a href="invoice-template.html">View</a></td>
+        </tr>
+        <tr>
+          <td>INV-1048</td><td>2025-05-28</td><td>Northern Delivery Co</td>
+          <td><span class="status-badge status-paid">Paid</span></td>
+          <td class="amount">$22,300</td>
+          <td><a href="invoice-template.html">View</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Need to bill a new client? Duplicate <strong><a href="invoice-template.html">invoice-template.html</a></strong> and update the details.</p>
+  </div>
+
+  <div class="footer">&copy; 2025 Guardianwing Finance Portal.</div>
+</div>
+</body>
+</html>

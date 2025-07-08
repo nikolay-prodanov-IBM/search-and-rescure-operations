@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12-Month Budget – Guardianwing</title>
+<style>
+/* Brand Colors */
+:root {
+  --brand-bg: #fff;
+  --brand-red: #F04A4A;
+  --brand-teal: #3CB6A6;
+  --brand-blue: #18232B;
+  --brand-lightblue: #8ED1E8;
+  --brand-gray: #e0e0e0;
+  --brand-text: #222;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  line-height: 1.6;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--brand-teal) 0%, var(--brand-lightblue) 100%);
+  color: var(--brand-blue);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,.08);
+  margin-bottom: 2rem;
+}
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: .5rem;
+  color: var(--brand-blue);
+  letter-spacing: 1px;
+}
+
+/* Navigation */
+.nav {
+  background: var(--brand-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.06);
+  margin-bottom: 2rem;
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.nav a {
+  color: var(--brand-blue);
+  text-decoration: none;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  transition: .3s;
+  font-weight: 500;
+}
+.nav a:hover {
+  background: var(--brand-teal);
+  color: var(--brand-bg);
+}
+
+/* Cards & Tables */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  border-left: 6px solid var(--brand-teal);
+}
+.card h2 {
+  color: var(--brand-blue);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+.card h3 {
+  color: var(--brand-teal);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.metric-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--brand-teal);
+  box-shadow: 0 2px 4px rgba(0,0,0,.04);
+}
+.metric-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--brand-blue);
+  margin-bottom: .5rem;
+}
+.metric-label {
+  color: var(--brand-text);
+  font-size: .9rem;
+}
+
+.amount {
+  text-align: right;
+  font-weight: 600;
+}
+.positive {
+  color: var(--brand-teal);
+}
+.negative {
+  color: var(--brand-red);
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  background: #fff;
+  color: var(--brand-text);
+}
+th, td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--brand-gray);
+}
+th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: var(--brand-blue);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--brand-blue);
+  border-top: 1px solid var(--brand-gray);
+  margin-top: 3rem;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .container{padding:10px}
+  .header h1{font-size:2rem}
+  .nav ul{flex-direction:column}
+}
+</style>
+<!-- SheetJS (xlsx) CDN -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="header"><h1>🛡️ Guardianwing Finance Portal</h1><p>12-Month Budget Forecast (Jul 2025 – Jun 2026)</p>
+    <button id="download-csv" style="margin-top:1rem;padding:0.7rem 1.5rem;background:#667eea;color:#fff;border:none;border-radius:5px;font-size:1rem;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,.08);">Download Budget Spreadsheet</button>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="main.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="budget.html">12-Month Budget</a></li>
+      <li><a href="invoices.html">Invoices</a></li>
+      <li><a href="pnl.html">P&L Statement</a></li>
+      <li><a href="cashflow.html">Cash Flow</a></li>
+      <li><a href="policies.html">Financial Policies</a></li>
+    </ul>
+  </nav>
+
+  <div class="card">
+    <h2>Revenue Projections</h2>
+    <p><strong>Assumptions:</strong> 7 employees • $1.5 M seed funding • Mixed hardware + SaaS model</p>
+    <table>
+      <thead><tr><th>Month</th><th class="amount">Subscription</th><th class="amount">Hardware</th><th class="amount">Consulting</th><th class="amount">Total</th></tr></thead>
+      <tbody>
+        <tr><td>July 2025</td><td class="amount">$65,000</td><td class="amount">$15,000</td><td class="amount">$9,450</td><td class="amount"><strong>$89,450</strong></td></tr>
+        <tr><td>August 2025</td><td class="amount">$72,000</td><td class="amount">$18,000</td><td class="amount">$10,200</td><td class="amount"><strong>$100,200</strong></td></tr>
+        <tr><td>September 2025</td><td class="amount">$79,000</td><td class="amount">$22,000</td><td class="amount">$11,700</td><td class="amount"><strong>$112,700</strong></td></tr>
+        <tr><td>October 2025</td><td class="amount">$86,000</td><td class="amount">$25,000</td><td class="amount">$12,500</td><td class="amount"><strong>$123,500</strong></td></tr>
+        <tr><td>November 2025</td><td class="amount">$92,000</td><td class="amount">$28,000</td><td class="amount">$14,200</td><td class="amount"><strong>$134,200</strong></td></tr>
+        <tr><td>December 2025</td><td class="amount">$98,000</td><td class="amount">$32,000</td><td class="amount">$15,800</td><td class="amount"><strong>$145,800</strong></td></tr>
+        <tr><td>January 2026</td><td class="amount">$105,000</td><td class="amount">$35,000</td><td class="amount">$17,500</td><td class="amount"><strong>$157,500</strong></td></tr>
+        <tr><td>February 2026</td><td class="amount">$112,000</td><td class="amount">$38,000</td><td class="amount">$19,200</td><td class="amount"><strong>$169,200</strong></td></tr>
+        <tr><td>March 2026</td><td class="amount">$118,000</td><td class="amount">$42,000</td><td class="amount">$21,000</td><td class="amount"><strong>$181,000</strong></td></tr>
+        <tr><td>April 2026</td><td class="amount">$125,000</td><td class="amount">$45,000</td><td class="amount">$22,800</td><td class="amount"><strong>$192,800</strong></td></tr>
+        <tr><td>May 2026</td><td class="amount">$132,000</td><td class="amount">$48,000</td><td class="amount">$24,600</td><td class="amount"><strong>$204,600</strong></td></tr>
+        <tr><td>June 2026</td><td class="amount">$138,000</td><td class="amount">$52,000</td><td class="amount">$26,400</td><td class="amount"><strong>$216,400</strong></td></tr>
+        <tr style="background:#f8f9fa;font-weight:bold"><td>Total</td><td class="amount"><strong>$1,221,000</strong></td><td class="amount"><strong>$400,000</strong></td><td class="amount"><strong>$196,550</strong></td><td class="amount"><strong>$1,917,550</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Expense Budget – Fixed vs Variable</h2>
+    <table>
+      <thead><tr><th>Category</th><th>Type</th><th class="amount">Monthly</th><th class="amount">Annual</th></tr></thead>
+      <tbody>
+        <tr><td>Salaries & Benefits</td><td>Fixed</td><td class="amount">$42,000</td><td class="amount">$504,000</td></tr>
+        <tr><td>Office Rent</td><td>Fixed</td><td class="amount">$4,500</td><td class="amount">$54,000</td></tr>
+        <tr><td>Insurance</td><td>Fixed</td><td class="amount">$2,200</td><td class="amount">$26,400</td></tr>
+        <tr><td>Cloud Infrastructure</td><td>Variable</td><td class="amount">$3,250</td><td class="amount">$39,000</td></tr>
+        <tr><td>Software Licenses</td><td>Fixed</td><td class="amount">$1,800</td><td class="amount">$21,600</td></tr>
+        <tr><td>Drone Hardware & Components</td><td>Variable</td><td class="amount">$12,000</td><td class="amount">$144,000</td></tr>
+        <tr><td>R&D Equipment</td><td>Variable</td><td class="amount">$8,500</td><td class="amount">$102,000</td></tr>
+        <tr><td>Marketing & Sales</td><td>Variable</td><td class="amount">$6,200</td><td class="amount">$74,400</td></tr>
+        <tr><td>Professional Services</td><td>Fixed</td><td class="amount">$3,800</td><td class="amount">$45,600</td></tr>
+        <tr><td>Travel & Transportation</td><td>Variable</td><td class="amount">$2,500</td><td class="amount">$30,000</td></tr>
+        <tr><td>Utilities & Comms</td><td>Fixed</td><td class="amount">$1,200</td><td class="amount">$14,400</td></tr>
+        <tr><td>Regulatory & Compliance</td><td>Fixed</td><td class="amount">$1,500</td><td class="amount">$18,000</td></tr>
+        <tr><td>Miscellaneous</td><td>Variable</td><td class="amount">$800</td><td class="amount">$9,600</td></tr>
+        <tr style="background:#f8f9fa;font-weight:bold"><td>Total Expenses</td><td></td><td class="amount"><strong>$90,250</strong></td><td class="amount"><strong>$1,083,000</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Budget Summary</h2>
+    <div class="metric-grid">
+      <div class="metric-card"><div class="metric-value positive">$1,917,550</div><div class="metric-label">Projected Revenue</div></div>
+      <div class="metric-card"><div class="metric-value negative">$1,083,000</div><div class="metric-label">Projected Expenses</div></div>
+      <div class="metric-card"><div class="metric-value positive">$834,550</div><div class="metric-label">Projected Net Income</div></div>
+      <div class="metric-card"><div class="metric-value">43.5%</div><div class="metric-label">Gross Margin</div></div>
+    </div>
+    <figure style="margin:2rem 0 0 0;text-align:center"><img src="rev_exp_colored_chart.png" alt="Revenue vs Expenses Chart" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)"><figcaption style="margin-top:0.5rem;color:#555;font-size:0.95rem">Revenue vs Expenses (12 Months)</figcaption></figure>
+  </div>
+
+  <div class="footer">&copy; 2025 Guardianwing Finance Portal.</div>
+</div>
+<script>
+function tableToSheetData(table) {
+  const rows = table.querySelectorAll('tr');
+  let data = [];
+  for (let row of rows) {
+    let cols = Array.from(row.querySelectorAll('th,td')).map(cell => {
+      let text = cell.innerText.replace(/\$/g, '').replace(/,/g, '');
+      return text;
+    });
+    data.push(cols);
+  }
+  return data;
+}
+
+document.getElementById('download-csv').addEventListener('click', function() {
+  // Get tables
+  const tables = document.querySelectorAll('.card table');
+  if (tables.length < 2) return;
+
+  // Prepare data for each sheet
+  const revenueData = tableToSheetData(tables[0]);
+  const expenseData = tableToSheetData(tables[1]);
+
+  // Create workbook and sheets
+  const wb = XLSX.utils.book_new();
+  const ws1 = XLSX.utils.aoa_to_sheet(revenueData);
+  XLSX.utils.book_append_sheet(wb, ws1, 'Revenue Projections');
+  const ws2 = XLSX.utils.aoa_to_sheet(expenseData);
+  XLSX.utils.book_append_sheet(wb, ws2, 'Expense Budget');
+
+  // Download as .xlsx
+  XLSX.writeFile(wb, '12-month-budget.xlsx');
+});
+</script>
+</body>
+</html>
